@@ -1,6 +1,6 @@
-output "resourcegroup_name" {
-  value = azurerm_resource_group.resource_group_name
+output "storage_id" {
+  value = module.storage.storage_account_id
 }
-output "storage_account_name" {
-  value = azurerm_storage_account.storage.name
+output "storage_primary_connection_string" {
+  value = module.storage.storage_account_primary_connection_string
 }
