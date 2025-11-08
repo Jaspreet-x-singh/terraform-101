@@ -9,6 +9,6 @@ terraform {
 
 module "RG" {
   source              = "./modules/resource-group"
-  resource_group_name = var.rgname
+  rgname              = var.rgname
   location            = var.location
 }
