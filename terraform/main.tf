@@ -8,7 +8,7 @@ terraform {
 }
 
 module "RG" {
-  source              = "./modules/resource-group"
-  rgname              = var.rgname
-  location            = var.location
+  source   = "./modules/resource-group"
+  rgname   = var.rgname
+  location = var.location
 }
