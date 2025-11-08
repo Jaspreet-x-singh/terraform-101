@@ -24,4 +24,3 @@ variable "account_replication_type" {
   default     = "LRS"
   type        = string
 }
-
