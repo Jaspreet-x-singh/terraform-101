@@ -73,9 +73,10 @@ jobs:
 
   destroy:
     name: 'Terraform Destroy'
-    if: github.event.inputs.confirm_destroy == 'YES'
+    needs: terraform
     runs-on: ubuntu-latest
-    environment: dev
+    environment: destroy
+    if: startsWith(github.ref, 'refs/heads/main') || startsWith(github.ref, 'refs/heads/users/')
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
