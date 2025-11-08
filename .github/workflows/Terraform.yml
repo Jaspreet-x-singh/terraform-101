@@ -4,11 +4,11 @@ on:
   push:
     branches:
     - main
-    - users*
+    - 'users/**'
   pull_request:
     branches:
       - main
-      - 'user*'
+      - 'users/**'
 
 jobs:
   terraform:
