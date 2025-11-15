@@ -171,18 +171,9 @@ Apply changes
 bash
 terraform apply
 
-📂 Project Structure
+## 📂 Project Structure
 
-.
-├── main.tf                  # Root configuration
-├── variables.tf             # Input variables
-├── terraform.tfvars         # User-defined values (excluded from repo if sensitive)
-├── modules/
-│   ├── resource-group/
-│   ├── virtual-network/
-│   ├── storage-account/
-│   └── app-service-plan/
-└── README.md
+. ├── main.tf # Root configuration ├── variables.tf # Input variables ├── terraform.tfvars # User-defined values (excluded from repo if sensitive) ├── modules/ │ ├── resource-group/ │ ├── virtual-network/ │ ├── storage-account/ │ └── app-service-plan/ └── README.md
 
 
 ## 📝 Notes
