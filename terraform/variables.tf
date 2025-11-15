@@ -50,3 +50,18 @@ variable "tags" {
   default     = {}
 }
 
+variable "app_service_plan_name" {
+  description = "The name of the App Service Plan"
+  default     = "asp-terraform-101"
+  type        = string
+}
+
+variable "app_service_plan" {
+  description = "The App Service Tier and SKU"
+  default     = {
+    tier = "Basic"
+    size = "B1"
+  }
+  type        = map
+}
+

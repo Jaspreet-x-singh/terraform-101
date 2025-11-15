@@ -20,9 +20,9 @@ module "vnet" {
   vnet_name           = "vnet-terraform-101"
   address_space       = ["10.1.0.0/16"]
   subnets = [
-    { name = "subnet-app"    , address_prefix = "10.1.1.0/24" },
-    { name = "subnet-db"     , address_prefix = "10.1.2.0/24" },
-    { name = "subnet-public" , address_prefix = "10.1.3.0/24" },
+    { name = "subnet-app", address_prefix = "10.1.1.0/24" },
+    { name = "subnet-db", address_prefix = "10.1.2.0/24" },
+    { name = "subnet-public", address_prefix = "10.1.3.0/24" },
   ]
   tags = {
     environment = "dev"
@@ -37,4 +37,15 @@ module "storage" {
   location                 = var.location
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
+}
+
+module "appserviceplan" {
+  source                = "./modules/app-service-plan"
+  app_service_plan_name = var.app_service_plan_name
+  resource_group_name   = var.resource_group_name
+  location              = var.location
+  app_service_plan = {
+    tier = var.app_service_plan.tier
+    size = var.app_service_plan.size
+  }
 }
