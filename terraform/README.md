@@ -171,7 +171,7 @@ Apply changes
 bash
 terraform apply
 
-## 📂 Project Structure
+📂 Project Structure
 
 .
 ├── main.tf                  # Root configuration
@@ -183,6 +183,7 @@ terraform apply
 │   ├── storage-account/
 │   └── app-service-plan/
 └── README.md
+
 
 ## 📝 Notes
 
