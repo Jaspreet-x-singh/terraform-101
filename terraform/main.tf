@@ -9,13 +9,13 @@ terraform {
 
 module "RG" {
   source              = "./modules/resource-group"
-  resource_group_name = var.resource_group_name
+  resource_group_name = module.RG.name
   location            = var.location
 }
 
 module "vnet" {
   source              = "./modules/virtual-network"
-  resource_group_name = var.resource_group_name
+  resource_group_name = module.RG.name
   location            = var.location
   vnet_name           = var.vnet_name
   address_space       = ["10.1.0.0/16"]
@@ -33,7 +33,7 @@ module "vnet" {
 module "storage" {
   source                   = "./modules/storage-account"
   storage_account_name     = var.storage_account_name
-  resource_group_name      = var.resource_group_name
+  resource_group_name      = module.RG.name
   location                 = var.location
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
@@ -42,7 +42,7 @@ module "storage" {
 module "appserviceplan" {
   source                = "./modules/app-service-plan"
   app_service_plan_name = var.app_service_plan_name
-  resource_group_name   = var.resource_group_name
+  resource_group_name   = module.RG.name
   location              = var.location
   app_service_plan = {
     tier = var.app_service_plan.tier
