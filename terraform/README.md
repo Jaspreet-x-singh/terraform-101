@@ -173,7 +173,6 @@ terraform apply
 
 ## 📂 Project Structure
 
-Code
 .
 ├── main.tf                  # Root configuration
 ├── variables.tf             # Input variables
