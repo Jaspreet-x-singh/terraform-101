@@ -59,19 +59,15 @@ terraform apply
 - [ ] Integrate with GitHub Actions
 - [ ] Add diagrams using `terraform graph`
 
-# Terraform Azure Infrastructure
+## Terraform Azure Infrastructure
 
-This repository provisions core Azure infrastructure using **Terraform**.  
-It uses a modular design to keep resources reusable and maintainable.
-
----
+This repository provisions core Azure infrastructure using Terraform. It uses a modular design to keep resources reusable and maintainable.
 
 ## 📦 Backend Configuration
 
-Terraform state is stored remotely in Azure Storage for consistency and collaboration.  
-The backend configuration is defined in `main.tf`:
+Terraform state is stored remotely in Azure Storage for consistency and collaboration. The backend configuration is defined in main.tf:
 
-
+hcl
 terraform {
   backend "azurerm" {
     resource_group_name  = "<RESOURCE_GROUP_FOR_BACKEND>"
@@ -80,7 +76,6 @@ terraform {
     key                  = "<STATE_FILE_KEY>"
   }
 }
-
 Replace the placeholders with your own values when deploying.
 
 ## 🏗️ Modules
@@ -88,6 +83,7 @@ Replace the placeholders with your own values when deploying.
 Resource Group
 Creates the base resource group for all resources.
 
+hcl
 module "RG" {
   source              = "./modules/resource-group"
   resource_group_name = var.resource_group_name
@@ -97,6 +93,7 @@ module "RG" {
 Virtual Network
 Defines a VNet with multiple subnets.
 
+hcl
 module "vnet" {
   source              = "./modules/virtual-network"
   resource_group_name = var.resource_group_name
@@ -108,9 +105,9 @@ module "vnet" {
 }
 
 Storage Account
-
 Creates a storage account for application/data needs.
 
+hcl
 module "storage" {
   source                   = "./modules/storage-account"
   storage_account_name     = var.storage_account_name
@@ -123,6 +120,7 @@ module "storage" {
 App Service Plan
 Defines an App Service Plan for hosting web apps.
 
+hcl
 module "appserviceplan" {
   source                = "./modules/app-service-plan"
   app_service_plan_name = var.app_service_plan_name
@@ -130,7 +128,6 @@ module "appserviceplan" {
   location              = var.location
   app_service_plan      = var.app_service_plan
 }
-
 
 ## ⚙️ Variables
 
@@ -151,28 +148,28 @@ Here are the key variables you’ll need to define:
 | `app_service_plan_name`   | App Service Plan name                |
 | `app_service_plan`        | Object with tier/size                |
 
+🚀 Usage
 
-## 🚀 Usage
-
-Initialize Terraform
+Initialize Terraform:
 
 bash
 terraform init
-Validate configuration
+Validate configuration:
 
 bash
 terraform validate
-Plan deployment
+Plan deployment:
 
 bash
 terraform plan
-Apply changes
+Apply changes:
 
 bash
 terraform apply
 
 ## 📂 Project Structure
 
+Code
 .
 ├── main.tf                  # Root configuration
 ├── variables.tf             # Input variables
@@ -183,8 +180,6 @@ terraform apply
 │   ├── storage-account/
 │   └── app-service-plan/
 └── README.md
-
-
 
 ## 📝 Notes
 
