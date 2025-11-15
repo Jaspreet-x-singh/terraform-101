@@ -26,6 +26,7 @@ variable "account_replication_type" {
 }
 variable "vnet_name" {
   description = "Name of the virtual network"
+  default     = "terraform-vnet"
   type        = string
 }
 
