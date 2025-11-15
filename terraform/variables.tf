@@ -58,10 +58,10 @@ variable "app_service_plan_name" {
 
 variable "app_service_plan" {
   description = "The App Service Tier and SKU"
-  default     = {
+  default = {
     tier = "Basic"
     size = "B1"
   }
-  type        = map
+  type = map(any)
 }
 
