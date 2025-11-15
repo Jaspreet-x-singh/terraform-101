@@ -17,7 +17,7 @@ module "vnet" {
   source              = "./modules/virtual-network"
   resource_group_name = var.resource_group_name
   location            = var.location
-  vnet_name           = "vnet-terraform-101"
+  vnet_name           = var.vnet_name
   address_space       = ["10.1.0.0/16"]
   subnets = [
     { name = "subnet-app", address_prefix = "10.1.1.0/24" },

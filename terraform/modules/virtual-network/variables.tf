@@ -11,6 +11,7 @@ variable "location" {
 variable "vnet_name" {
   description = "Name of the virtual network"
   type        = string
+  default     = "terraform-vnet"
 }
 
 variable "address_space" {
